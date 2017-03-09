@@ -1,6 +1,9 @@
 #!/bin/bash
 
-echo "nginx localhost:8080"
+echo "nginx localhost:8088"
 
-docker run --name some-nginx --rm -it -p 8080:80 -v /var/www/html:/usr/share/nginx/html:ro nginx
-
+docker run --name nginx \
+    --rm -it \
+    -p 8088:80 \
+    -v /Users/junlapong/git-space/junlapong.github.io:/usr/share/nginx/html:ro \
+    nginx:alpine
