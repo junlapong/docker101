@@ -1,1 +1,4 @@
 # ignore files
+*.war
+.DS_Store
+

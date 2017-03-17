@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    hostname: woocommerce
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+    ports:
+      - "8080:80"
+    links:
+      - database
+    networks:
+      - docker_woocommerce
+
+  database:
+    hostname: mariadb
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+    networks:
+      - docker_woocommerce
+
+networks:
+  docker_woocommerce:
+    driver: bridge
