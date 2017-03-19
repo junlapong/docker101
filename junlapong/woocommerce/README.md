@@ -1,9 +1,22 @@
-# woocommerce-docker
+woocommerce-docker
 ====================
 
-## Docker images
- - https://hub.docker.com/_/wordpress/
- - https://hub.docker.com/_/mariadb/
+## Build
+```
+docker build -t junlapong/woocommerce .
+```
+
+## Run
+```
+docker run --rm -ti -p 8080:80 --name woocommerce junlapong/woocommerce
+```
+
+## Bash
+```
+docker exec -it woocommerce bin/bash
+```
+
+## Docker Compose
 
 ```
 docker-compose up
@@ -25,21 +38,6 @@ MariaDB > create database wordpress;
  - http://127.0.0.1:8080/
  - http://127.0.0.1:8080/wp-login.php
 
-
-## Build
-```
-docker build -t junlapong/woocommerce .
-```
-
-## Run
-```
-docker run --rm -ti -p 9080:80 --name woocommerce junlapong/woocommerce
-```
-
-## Bash
-```
-docker exec -it woocommerce bin/bash
-```
-
-# TODO
-change base image to junlapong/alpine-nginx-php7
+## CyberSource Plugin
+ - [Silent Order Post (SA SOP)](https://docs.woocommerce.com/document/cybersource-sop-payment-gateway/)
+ - [SOAP Toolkit API](https://docs.woocommerce.com/document/cybersource-payment-gateway/)
