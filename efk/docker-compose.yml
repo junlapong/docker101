@@ -1,0 +1,28 @@
+version: '2'
+services:
+
+  fluentd:
+    build: ./fluentd
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+    links:
+      - "elasticsearch"
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    logging:
+        driver: "json-file"
+        options:
+            max-size: 100m
+            max-file: "5"
+
+  elasticsearch:
+    image: elasticsearch:5.3.0
+
+  kibana:
+    image: kibana:5.3.0
+    links:
+      - "elasticsearch"
+    ports:
+      - "5601:5601"
+
