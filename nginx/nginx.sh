@@ -8,3 +8,4 @@ docker run --rm -ti \
     nginx:alpine
 
 # docker exec -it nginx-container /bin/sh
+# $ ./nginx.sh <PORT> <DOC_ROOT>
